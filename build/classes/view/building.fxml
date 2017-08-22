@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?> 
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+
+<VBox fx:controller="controller.BuildingController" 
+      xmlns:fx="http://javafx.com/fxml" alignment="center" 
+      spacing="20" prefWidth="430" prefHeight="340"
+        >
+    <HBox spacing="50" >
+        <padding>
+             <Insets left="20" bottom="30" top="10"/>
+        </padding>
+        <ImageView> <image><Image url="@building.png"/></image></ImageView>
+        <VBox>
+            <Text text="Lift System" styleClass="heading" />
+            <Text text="Building" styleClass="subheading"/>
+        </VBox>
+    </HBox>
+    <HBox alignment="center" >
+        <TableView fx:id="liftsTv" items="${controller.building.lifts}" prefWidth="400" prefHeight="110">
+            <columns>
+                <TableColumn fx:id="numberTc" text="Lift" />
+                <TableColumn fx:id="levelTc" text="Level" />
+                <TableColumn text="Direction" >
+                    <cellValueFactory><PropertyValueFactory property="liftStatus"/></cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="PassengersTc" text="Passengers"   />
+                <TableColumn fx:id="WaitingTc" text="Waiting" />
+            </columns>
+        </TableView>
+    </HBox>
+    <HBox spacing="5" alignment="CENTER" >
+        <Button text="Call Lift" onAction="#handleCallLift"/>
+        <Button fx:id="viewLiftBt" disable="true" text="View Lift" onAction="#handleViewLift" />
+        <Button text="People" onAction="#handlePeople"/>
+        <Button text="Exit" onAction="#handleExit" />
+    </HBox>
+    <HBox spacing="10" alignment="center">
+        <Slider fx:id="delaySl" prefWidth="300" min="1" max="10" snapToTicks="true" majorTickUnit="1" minorTickCount="0" showTickMarks="true" showTickLabels="true"/>
+        <Text text="${'Time:' + controller.building.time}" styleClass="time"/>
+    </HBox>
+    <stylesheets>
+        <URL value="@style.css"/>
+    </stylesheets>
+</VBox>
