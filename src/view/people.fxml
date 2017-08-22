@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?> 
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+
+<VBox
+    xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PersonController" 
+    alignment="center"
+    spacing="20"
+    styleClass="root" prefWidth="450" prefHeight="400" >
+    <padding><Insets top="20"/><Insets left="20"/><Insets right="10"/></padding>
+    <HBox spacing="45" prefWidth="300" >
+        <padding>
+            <Insets left="20"/>
+        </padding>
+        <ImageView >
+            <image><Image url="@building.png"/></image>
+        </ImageView>
+        <VBox >
+            <Text text="Lift System" styleClass="heading" />
+            <Text text="People" styleClass="subheading" />
+        </VBox>
+    </HBox>
+    
+    <HBox alignment="center" spacing="5" prefWidth="300">
+    <TableView fx:id="peopleTv" items="${controller.building.people}" 
+               prefWidth="350" prefHeight="220" >
+        <columns>
+            <TableColumn fx:id="idClm" text="ID"/>
+            <TableColumn fx:id="nameClm" text="Name"/>
+            <TableColumn fx:id="levelClm" text="Level"/>
+            <TableColumn fx:id="destinationClm" text="Destination"/>
+            <TableColumn fx:id="aboardClm" text="Aboard"/>
+        </columns>
+    </TableView>
+    </HBox>
+    <HBox spacing="5" alignment="center" >
+        <padding><Insets bottom="10"/></padding>
+        <Button text="Close" onAction="#handleClose"/>
+    </HBox>
+    <stylesheets>
+        <URL value="@style.css"/>
+    </stylesheets>
+</VBox>
+           
